@@ -24,4 +24,4 @@ Execute o projeto e comece a usar :).
 - `.NET`
 - `C#`
 - `SQLite`
-- ` Entity Framework`
+- `Entity Framework`
