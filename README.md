@@ -11,7 +11,7 @@ Este é um jogo de adivinhação de número inteiro desenvolvido como parte de u
 
 Execute o projeto e comece a usar :).
 
-## Estrutura do Projeto MVC
+# :gear: Estrutura do Projeto
 O projeto segue uma estrutura em camadas para garantir uma separação clara das responsabilidades. Veja como o projeto está organizado:
 
 Controllers
