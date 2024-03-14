@@ -5,7 +5,7 @@ Este é um jogo de adivinhação de número inteiro desenvolvido como parte de u
 
 # :hammer: Como utilizar
 
-- `SDK`: Certifique-se de ter o .NET 6.0 SDK instalado em sua máquina.
+- `SDK`:Certifique-se de ter o .NET 6.0 SDK instalado em sua máquina.
 - `Acesso`: Clone ou faça o download do código-fonte do projeto para o seu ambiente.
 - `Navegação`: Navegue até o diretório raiz do projeto no terminal ou prompt de comando.
 
