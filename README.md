@@ -3,7 +3,7 @@
 
 Este é um jogo de adivinhação de número inteiro desenvolvido como parte de um desafio proposto pela NewCentury. O projeto foi implementado como uma aplicação web seguindo a arquitetura MVC (Model-View-Controller), utilizando SQLite como banco de dados e Entity Framework Core para interação com o banco de dados. Além disso, o projeto foi organizado em três camadas: apresentação, lógica de negócios e acesso a dados.
 
-Como Utilizar
+## Como Utilizar
 
 Para utilizar este projeto, siga os passos abaixo:
 
@@ -15,7 +15,7 @@ Navegue até o diretório raiz do projeto no terminal ou prompt de comando.
 
 Execute o projeto e comece a usar :).
 
-Estrutura do Projeto MVC
+## Estrutura do Projeto MVC
 O projeto segue uma estrutura em camadas para garantir uma separação clara das responsabilidades. Veja como o projeto está organizado:
 
 Controllers
