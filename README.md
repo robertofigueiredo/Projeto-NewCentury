@@ -1,5 +1,5 @@
 
-Adivinha Número Inteiro - Desafio NewCentury
+# Adivinha Número Inteiro - Desafio NewCentury
 
 Este é um jogo de adivinhação de número inteiro desenvolvido como parte de um desafio proposto pela NewCentury. O projeto foi implementado como uma aplicação web seguindo a arquitetura MVC (Model-View-Controller), utilizando SQLite como banco de dados e Entity Framework Core para interação com o banco de dados. Além disso, o projeto foi organizado em três camadas: apresentação, lógica de negócios e acesso a dados.
 
