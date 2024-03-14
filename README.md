@@ -15,8 +15,8 @@ Execute o projeto e comece a usar :).
 
 - `Controllers`: Os controladores são responsáveis por lidar com as requisições HTTP e direcioná-las para os serviços apropriados.
 - `Services`: Eles encapsulam a lógica de negócio e interagem com os repositórios para executar as operações da aplicação web.
-- `Models`: Os modelos de visualização são objetos de transferência de dados usados para entrada e saída da aplicação, definindo a estrutura dos dados enviados e recebidos.
+- `Models`: Os modelos de visualização são objetos de transferência de dados usados para entrada e saída da aplicação.
 - `Repositories`: Os repositórios são responsáveis pela comunicação com o banco de dados e operações de persistência.
-- `Domain`: O domínio contém as entidades principais da aplicação. Essas entidades representam os objetos manipulados pela aplicação e contêm as regras de negócio relacionadas a essas entidades.
+- `Domain`: O domínio contém as entidades principais da aplicação.
 
 Essa estrutura em camadas ajuda a manter a separação de responsabilidades, facilitando a manutenção do código e promovendo a reutilização de componentes.
