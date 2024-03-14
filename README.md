@@ -11,22 +11,12 @@ Este é um jogo de adivinhação de número inteiro desenvolvido como parte de u
 
 Execute o projeto e comece a usar :).
 
-# :gear: Estrutura do Projeto
-O projeto segue uma estrutura em camadas para garantir uma separação clara das responsabilidades. Veja como o projeto está organizado:
+# :gear: Como Utilizar
 
-Controllers
-Os controladores são responsáveis por lidar com as requisições HTTP e direcioná-las para os serviços apropriados. Eles cuidam da entrada e saída de dados da aplicação web.
-
-Services
-Os serviços contêm a lógica de negócio e realizam operações nos dados. Eles encapsulam a lógica de negócio e interagem com os repositórios para executar as operações da aplicação web.
-
-Models
-Os modelos de visualização contêm os objetos de transferência de dados utilizados para entrada e saída da aplicação. Eles definem a estrutura dos dados que são enviados e recebidos pela aplicação, garantindo uma separação clara entre as entidades do domínio e os dados da aplicação.
-
-Repositories
-Os repositórios são responsáveis pela comunicação com o banco de dados e operações de persistência. Eles lidam com a recuperação e persistência dos dados no banco de dados, abstraindo os detalhes de acesso ao banco de dados para os serviços.
-
-Domain
-O domínio contém as entidades principais da aplicação. Essas entidades representam os objetos manipulados pela aplicação e contêm as regras de negócio relacionadas a essas entidades.
+- `Controllers`: Os controladores são responsáveis por lidar com as requisições HTTP e direcioná-las para os serviços apropriados.
+- `Services`: Eles encapsulam a lógica de negócio e interagem com os repositórios para executar as operações da aplicação web.
+- `Models`: Os modelos de visualização são objetos de transferência de dados usados para entrada e saída da aplicação, definindo a estrutura dos dados enviados e recebidos.
+- `Repositories`: Os repositórios são responsáveis pela comunicação com o banco de dados e operações de persistência.
+- `Domain`: O domínio contém as entidades principais da aplicação. Essas entidades representam os objetos manipulados pela aplicação e contêm as regras de negócio relacionadas a essas entidades.
 
 Essa estrutura em camadas ajuda a manter a separação de responsabilidades, facilitando a manutenção do código e promovendo a reutilização de componentes.
