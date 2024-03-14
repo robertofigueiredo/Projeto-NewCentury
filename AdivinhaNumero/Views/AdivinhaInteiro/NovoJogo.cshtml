@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Jogo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container-fluid {
+            border: solid 1px #d1d1d1;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }
+
+        h1 {
+            color: #ff5733;
+        }
+
+        .btn {
+            background-color: #ffbd69;
+            border-color: #ffbd69;
+            color: #fff;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+            .btn:last-child {
+                margin-right: 0;
+            }
+
+            .btn:hover {
+                background-color: #ff914d;
+                border-color: #ff914d;
+            }
+
+        #numeroJogador {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Novo Jogo</h1>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Número do Jogador:</label>
+            </div>
+            <div class="col-md-3" style="margin-left: -5rem">
+                <input type="number" id="numeroJogador" class="form-control" style="width: 60%;" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Dificuldade:</label>
+            </div>
+            <div class="col-md-3" style="margin-left: -5rem">
+                <select class="form-select" style="width: 60%;">
+                    <option value="Fácil">Fácil</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Difícil">Difícil</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Seu palpite:</label>
+            </div>
+            <div class="col-md-3" style="margin-left: -5rem">
+                <input type="number" id="palpitejogador" class="form-control" style="width:60%;" />
+            </div>
+        </div>
+        <br />
+        <button type="button" id="btnVoltar" class="btn">Voltar</button>
+        <button type="button" id="NovoJogo" class="btn">Confirmar</button>
+    </div>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $("#btnVoltar").click(function () {
+        window.history.back();
+    })
+
+    $("#NovoJogo").click(function () {
+        debugger
+        var numeroJogador = $("#numeroJogador").val();
+        var dificuldade = $("#dificuldade select").val();
+        var palpitejogador = $("#palpitejogador").val();
+
+        if (numeroJogador == '') {
+            toastr.error("Insira o número do jogador");
+        } else if (dificuldade == '') {
+            toastr.error("Selecione uma dificuldade");
+        } else if (palpitejogador == '') {
+            toastr.error("Insira seu palpite");
+        } else {
+            $.ajax({
+                url: "../AdivinhaInteiro/ConfirmarJogada",
+                method: "GET",
+                data: { numeroJogador: numeroJogador, dificuldade: dificuldade, palpitejogador: palpitejogador },
+                success: function (data) {
+                    debugger
+                    if (data == "SUCCESS") {
+                        toastr.success("Parabéns você acertou!!");
+                    } else {
+                        toastr.error("Você errou! tente novamente");
+                    }
+                },
+                error: function () {
+                    toastr.error("Ocorreu um erro ao confirmar número");
+                }
+            });
+        }
+    });
+</script>
+
