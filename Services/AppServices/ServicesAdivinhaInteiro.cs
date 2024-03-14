@@ -101,9 +101,7 @@ namespace Services.Services
         /// Metodo onde é confirmado a jogada do usuario, onde eu incluo um usuario caso não houver e com isso
         /// posteriormente atualizo sua jogada, gero um numero de 1 a 100 e utilizo o EnumResultados
         /// </summary>
-        /// <param name="numeroJogador"></param>
-        /// <param name="palpitejogador"></param>
-        /// <returns></returns>
+
         public string ConfirmarJogada(int numeroJogador, int palpitejogador)
         {
             string retorno = string.Empty;
@@ -112,41 +110,31 @@ namespace Services.Services
                 int indice = 0;
                 bool AumentoTentativa = false;
                 Random random = new Random();
-                int NumeroGerado = random.Next(0, 101);
+                int NumeroGerado = random.Next(1, 20);
                 var rank = string.Empty;
                 var JogadorExiste = _repository.JogadorExiste(numeroJogador);
                 if (!JogadorExiste)
                 {
-                    var NovoJogador = new AdivinhaInteiro
-                    {
-                        COD_JOGADOR = numeroJogador,
-                        NUM_TENTATIVA = 0,
-                        Resultado = "Novo",
-                        HorarioJogo = DateTime.Now,
-                    };
-                    var IncluirJogador = _repository.IncluirJogador(NovoJogador);
-
+                    var incluirJogador = IncluirNovoJogador(numeroJogador);
+                    indice = 1;
                     if (NumeroGerado == palpitejogador)
                     {
-                        return retorno = Enums.EnumResultado.SUCCESS.ToString();
+                        var SucessoTentativa = AumentoTentativaSucesso(indice, rank, numeroJogador);
+                        retorno = Enums.EnumResultado.SUCCESS.ToString();
+                        return retorno;
                     }
+                    var ErroTentativa = AumentoTentativaErro(indice, rank, numeroJogador);
                     retorno = Enums.EnumResultado.WRONG.ToString();
-                    indice = 1;
-                    AumentoTentativa = _repository.AumentoTentativa(numeroJogador, retorno, indice);
-                    rank = ObterRank(numeroJogador);
-
                     return retorno;
                 }
                 if (NumeroGerado == palpitejogador)
                 {
                     retorno = Enums.EnumResultado.SUCCESS.ToString();
-                    AumentoTentativa = _repository.AumentoTentativa(numeroJogador, retorno, indice);
-                    rank = ObterRank(numeroJogador);
+                    var SucessoTentativa = AumentoTentativaSucesso(indice, rank, numeroJogador);
                     return retorno;
                 }
+                var ErroTentativaExiste = AumentoTentativaErro(indice, rank, numeroJogador);
                 retorno = Enums.EnumResultado.WRONG.ToString();
-                AumentoTentativa = _repository.AumentoTentativa(numeroJogador, retorno, indice);
-                rank = ObterRank(numeroJogador);
             }
             catch (Exception ex)
             {
@@ -158,6 +146,32 @@ namespace Services.Services
         }
 
         #endregion
+
+        private bool IncluirNovoJogador(int numeroJogador)
+        {
+            var NovoJogador = new AdivinhaInteiro
+            {
+                COD_JOGADOR = numeroJogador,
+                NUM_TENTATIVA = 0,
+                Resultado = "Novo",
+                HorarioJogo = DateTime.Now,
+            };
+            var IncluirJogador = _repository.IncluirJogador(NovoJogador);
+            return IncluirJogador;
+        }
+
+        private bool AumentoTentativaSucesso(int indice, string rank, int numeroJogador)
+        {
+            bool retornoAumento = _repository.AumentoTentativa(numeroJogador, Enums.EnumResultado.SUCCESS.ToString(), indice);
+            rank = ObterRank(numeroJogador);
+            return retornoAumento;
+        }
+        private bool AumentoTentativaErro(int indice, string rank, int numeroJogador)
+        {
+            bool retornoAumento = _repository.AumentoTentativa(numeroJogador, Enums.EnumResultado.WRONG.ToString(), indice);
+            rank = ObterRank(numeroJogador);
+            return retornoAumento;
+        }
 
     }
 }
