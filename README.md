@@ -19,4 +19,9 @@ Execute o projeto e comece a usar :).
 - `Repositories`: Os repositórios são responsáveis pela comunicação com o banco de dados e operações de persistência.
 - `Domain`: O domínio contém as entidades principais da aplicação.
 
-Essa estrutura em camadas ajuda a manter a separação de responsabilidades, facilitando a manutenção do código e promovendo a reutilização de componentes.
+# :rocket: Tecnologias utilizadas
+
+- `.NET`
+- `C#`
+- `SQLite`
+- ` Entity Framework`
