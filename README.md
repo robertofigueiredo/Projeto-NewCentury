@@ -11,7 +11,7 @@ Este é um jogo de adivinhação de número inteiro desenvolvido como parte de u
 
 Execute o projeto e comece a usar :).
 
-# :gear: Como Utilizar
+# :gear: Estrutura do Projeto
 
 - `Controllers`: Os controladores são responsáveis por lidar com as requisições HTTP e direcioná-las para os serviços apropriados.
 - `Services`: Eles encapsulam a lógica de negócio e interagem com os repositórios para executar as operações da aplicação web.
